@@ -2,12 +2,21 @@ package lesson2;
 
 public class Lesson2 {
     public static void main(String[] args) {
-        System.out.println(isSumBetween10and20(5, 10));
-        isPositiveOrNegative(-5);
-        System.out.println(isNegative(0));
-        repeatString("test", 5);
 
-        for (int i = 0; i < 2100; i++) {
+        System.out.println(isSumBetween10and20(5, 10));
+        System.out.println();
+
+        isPositiveOrNegative(-5);
+        System.out.println();
+
+        System.out.println(isNegative(0));
+        System.out.println();
+
+        repeatString("test", 5);
+        System.out.println();
+
+        System.out.println();
+        for (int i = 1800; i < 2200; i++) {
             if (isLeapYear(i)) {
                 System.out.println(i);
             }
