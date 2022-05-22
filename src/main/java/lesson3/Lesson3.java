@@ -23,7 +23,7 @@ public class Lesson3 {
         System.out.println();
 
 //      задание 5
-        System.out.println(Arrays.toString(getArray(10, 5)));
+        System.out.println(Arrays.toString(getArray(3, 5)));
         System.out.println();
 
 //        задание 6
@@ -41,7 +41,7 @@ public class Lesson3 {
 //        задание 8
         int[] dim = {1, 2, 3, 4, 5};
 //        int[] dim={3,5,6,1};
-        shiftArray(dim, -1);
+        shiftArray(dim, 2);
 
 
     }
@@ -90,6 +90,7 @@ public class Lesson3 {
     }
 
     public static int[] getArray(int len, int initialValue) {
+
         int[] arr = new int[len];
         for (int i = 0; i < len; i++) {
             arr[i] = initialValue;
