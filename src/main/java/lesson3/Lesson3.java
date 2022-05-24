@@ -32,7 +32,8 @@ public class Lesson3 {
 
 //      задание 7
 //        int[] arr={1,1,1,1,0, 4};
-        int[] arr = {2, 1, 7, 0, 1, 7, 2};
+        int[] arr = {2, 1, 7, 1, 7, 2};
+//        int[] arr = {1,1,1,2,1};
 //      int [] arr={2, 0, 0};
         boolean res = isLeftEqualsRight(arr);
         System.out.println(res);
@@ -77,14 +78,14 @@ public class Lesson3 {
     }
 
     public static void fillDiagonal() {
-        final int LENGTH = 10;
+        final int LENGTH = 5;
         int[][] arr = new int[LENGTH][LENGTH];
 
         for (int i = 0; i < LENGTH; i++) {
             arr[i][i] = 1;
-            arr[i][LENGTH - i - 1] = 1;
+            arr[i][arr[i].length - i - 1] = 1;
         }
-        for (int i = 0; i < LENGTH; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.println(Arrays.toString(arr[i]));
         }
     }
@@ -110,11 +111,11 @@ public class Lesson3 {
         int min = arr[0];
         int max = arr[0];
 
-        for (int i = 0; i < LENGTH; i++) {
-            if (max > arr[i])
-                max = arr[i];
-            if (min < arr[i])
+        for (int i = 1; i < LENGTH; i++) {
+            if (min > arr[i])
                 min = arr[i];
+            if (max < arr[i])
+                max = arr[i];
         }
 
         System.out.println("Source array: " + Arrays.toString(arr));
@@ -136,6 +137,7 @@ public class Lesson3 {
 
         while (leftIndex < rightIndex) {
 
+
             // предотвращение зацикливания если суммы слева и справа равны, а массив не пройден до конца
             // идем дальше по одной из сторон
             if (leftSum <= rightSum)
@@ -144,10 +146,7 @@ public class Lesson3 {
                 rightSum += source[--rightIndex];
 
             if (leftSum == rightSum && (rightIndex - leftIndex) == 1) {
-                System.out.println("Array: " + Arrays.toString(source));
-                System.out.println("left part of array from index: 0 to: " + leftIndex);
-                System.out.println("right part of array from index: " + rightIndex + " to: " + (source.length - 1));
-                System.out.println("Sum of parts is: " + leftSum);
+
                 return true;
             }
         }
@@ -162,7 +161,7 @@ public class Lesson3 {
 
         // сдвиг влево это сдвиг вправо с другим шагом
         if (step < 0) {
-            step = source.length + step;
+            step += source.length;
         }
         for (int i = 0; i < step; i++) {
             int temp = source[source.length - 1];
