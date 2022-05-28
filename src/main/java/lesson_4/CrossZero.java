@@ -1,6 +1,10 @@
 package lesson_4;
 
 
+import java.io.FileNotFoundException;
+import java.io.IOError;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.Random;
 import java.util.Scanner;
 
