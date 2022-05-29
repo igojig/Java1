@@ -1,6 +1,6 @@
 package lesson5.data;
 
- public enum Position {
+public enum Position {
     DIRECTOR("Директор"),
     MANAGER("менеджер"),
     PROGRAMMER("программист"),
@@ -11,8 +11,8 @@ package lesson5.data;
 
     final String position;
 
-    Position(String position){
-        this.position=position;
+    Position(String position) {
+        this.position = position;
     }
 
     public String getPosition() {

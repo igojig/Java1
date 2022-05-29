@@ -17,12 +17,12 @@ public class Employee {
         this.age = age;
     }
 
-    public String getFullName() {
-        return fullName.toString();
+    public FullName getFullName() {
+        return fullName;
     }
 
-    public String getPosition() {
-        return position.toString();
+    public Position getPosition() {
+        return position;
     }
 
     public String getEmail() {
