@@ -21,6 +21,6 @@ public enum Position {
 
     @Override
     public String toString() {
-        return " должность ='" + position + '\'';
+        return "должность ='" + position + '\'';
     }
 }
