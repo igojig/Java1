@@ -27,7 +27,7 @@ public class CrossZero {
 
     static int turnCount = 0;
     // для подсчета выигрышной длины
-    static int winnerCount = 0;
+    static int winPointsCount = 0;
 
     public static void main(String[] args) throws InterruptedException {
         initField();
@@ -125,7 +125,7 @@ public class CrossZero {
     }
 
     private static boolean isColumnWin(char symbol) {
-        winnerCount = 0;
+        winPointsCount = 0;
         for (int i = 0; i < SIZE; i++) {
             if (checkWinCondition(field[i][lastColumn], symbol)) {
                 return true;
@@ -135,7 +135,7 @@ public class CrossZero {
     }
 
     private static boolean isRowWin(char symbol) {
-        winnerCount = 0;
+        winPointsCount = 0;
         for (int i = 0; i < SIZE; i++) {
             if (checkWinCondition(field[lastRow][i], symbol)) {
                 return true;
@@ -148,7 +148,7 @@ public class CrossZero {
 
         int column = lastColumn;
         int row = lastRow;
-        winnerCount = 0;
+        winPointsCount = 0;
         //ищем начало диагонали
         //идем  вверх влево
         while (column > 0 && row > 0) {
@@ -166,7 +166,7 @@ public class CrossZero {
         // идем  вверх вправо
         column = lastColumn;
         row = lastRow;
-        winnerCount = 0;
+        winPointsCount = 0;
         while (column < SIZE - 1 && row > 0) {
             column++;
             row--;
@@ -183,9 +183,9 @@ public class CrossZero {
 
     private static boolean checkWinCondition(char fieldSymbol, char symbol) {
         if (fieldSymbol == symbol) {
-            return ++winnerCount == WINNING_LENGTH;
+            return ++winPointsCount == WINNING_LENGTH;
         }
-        winnerCount = 0;
+        winPointsCount = 0;
         return false;
     }
 
