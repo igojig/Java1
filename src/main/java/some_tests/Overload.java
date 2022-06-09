@@ -22,6 +22,9 @@ public class Overload {
     }
 
     public static void main(String[] args) {
+
+
+
         foo(1);
         Test.a++;
         Test.a++;
