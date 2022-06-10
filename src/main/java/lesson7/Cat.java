@@ -24,8 +24,7 @@ public class Cat {
         System.out.println(" хочеть съесть " + hungryAmount + " корма");
 
         // проверяем что еды а тарелке достаточно
-        if (plate.isEnoughFood(hungryAmount)) {
-            plate.decreaseFoodCount(hungryAmount);
+        if (plate.decreaseFoodCount(hungryAmount)) {
             appetite -= hungryAmount;
             System.out.println(this + " съел " + hungryAmount + " корма. " + getAppetiteStr());
             // иначе съедаем всю доступную еду
@@ -34,6 +33,18 @@ public class Cat {
             System.out.println(this + " Мне не хватило еды. Я съел " + plate.getFoodCount() + " корма. " + getAppetiteStr());
             plate.decreaseAllFood();
         }
+
+//        // проверяем что еды а тарелке достаточно
+//        if (plate.isEnoughFood(hungryAmount)) {
+//            plate.decreaseFoodCount(hungryAmount);
+//            appetite -= hungryAmount;
+//            System.out.println(this + " съел " + hungryAmount + " корма. " + getAppetiteStr());
+//            // иначе съедаем всю доступную еду
+//        } else {
+//            appetite -= plate.getFoodCount();
+//            System.out.println(this + " Мне не хватило еды. Я съел " + plate.getFoodCount() + " корма. " + getAppetiteStr());
+//            plate.decreaseAllFood();
+//        }
     }
 
     boolean isHungry() {
