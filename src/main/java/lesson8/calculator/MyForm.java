@@ -51,8 +51,9 @@ public class MyForm extends JFrame {
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        expression.enterNewSymbol(((CalculatorButton) e.getSource()).getSymbol());
-//                        ((CalculatorButton) e.getSource()).getSymbol().doAction(expression);
+//                        expression.enterNewSymbol(((CalculatorButton) e.getSource()).getSymbol());
+                        ((CalculatorButton) e.getSource()).getSymbol().doAction(expression);
+                        expression.show();
                     }
                 });
                 panel.add(button);
@@ -81,12 +82,10 @@ public class MyForm extends JFrame {
         for (Symbol symbol : symbols) {
             JButton button = new CalculatorButton(symbol);
             button.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    expression.enterNewSymbol(((CalculatorButton) e.getSource()).getSymbol());
-//                    ((CalculatorButton) e.getSource()).getSymbol().doAction(expression);
-                }
+            button.addActionListener(e -> {
+//                    expression.enterNewSymbol(((CalculatorButton) e.getSource()).getSymbol());
+                ((CalculatorButton) e.getSource()).getSymbol().doAction(expression);
+                expression.show();
             });
             panel.add(button);
         }

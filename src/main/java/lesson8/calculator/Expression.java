@@ -34,7 +34,7 @@ public class Expression {
         symbol.doAction(this);
     }
 
-    private void show() {
+    public void show() {
         textField.setText(expressionString.toString());
     }
 

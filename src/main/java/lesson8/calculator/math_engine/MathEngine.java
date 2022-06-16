@@ -13,13 +13,13 @@ import java.util.regex.Pattern;
 public class MathEngine {
     private static final ArrayDeque<String> stackString = new ArrayDeque<>();
     private static final StringBuilder resultString = new StringBuilder();
-    private final static ArrayDeque<Double> stackDouble =new ArrayDeque<>();
+    private final static ArrayDeque<Double> stackDouble = new ArrayDeque<>();
 
     private final static Map<String, Integer> operatorPriority = new HashMap<>();
-    private final static Map<String, BiFunction<Double, Double,Double>> operatorFunction =new HashMap<>();
+    private final static Map<String, BiFunction<Double, Double, Double>> operatorFunction = new HashMap<>();
 
     static {
-        for(Operator op: Operator.values()){
+        for (Operator op : Operator.values()) {
             operatorPriority.put(op.getStringFromSymbol(), op.getPriority());
             operatorFunction.put(op.getStringFromSymbol(), op.getFunction());
         }
@@ -53,8 +53,8 @@ public class MathEngine {
 
     private static double calculate(double operand_1, double operand_2, String operator) {
 
-        var function =operatorFunction.get(operator);
-        if(function==null){
+        var function = operatorFunction.get(operator);
+        if (function == null) {
             throw new RuntimeException("Error in calculate function");
         }
 
@@ -73,13 +73,13 @@ public class MathEngine {
 //        };
     }
 
-    public static String toPostfixFromInfix(String strMathInfix){
+    public static String toPostfixFromInfix(String strMathInfix) {
         stackString.clear();
         resultString.setLength(0);
-        Matcher matcher=getMatcher(strMathInfix);
-        while (matcher.find()){
-            String mathElement=matcher.group();
-            if(isNumeric(mathElement)){
+        Matcher matcher = getMatcher(strMathInfix);
+        while (matcher.find()) {
+            String mathElement = matcher.group();
+            if (isNumeric(mathElement)) {
                 addToString(mathElement);
             } else if (isOperator(mathElement)) {
                 doOperator(mathElement);
@@ -158,7 +158,7 @@ public class MathEngine {
         return pattern.matcher(str).find();
     }
 
-    public static boolean isOperator(String str){
+    public static boolean isOperator(String str) {
         Pattern pattern = Pattern.compile(getPatternForOperators());
         return pattern.matcher(str).find();
     }
@@ -167,8 +167,8 @@ public class MathEngine {
         return getPatternForDigits() + "|" + getPatternForBrackets() + "|" + getPatternForOperators();
     }
 
-    private static Matcher getMatcher(String strMathInfix){
-        Pattern pattern=Pattern.compile(getFullPatternString());
+    private static Matcher getMatcher(String strMathInfix) {
+        Pattern pattern = Pattern.compile(getFullPatternString());
         return pattern.matcher(strMathInfix);
     }
 }
